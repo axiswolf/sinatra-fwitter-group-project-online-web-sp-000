@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'rack-flash'
-require_relative './app/controllers/helpers/helpers'
+require_relative '../app/controllers/helpers/helpers'
 
 class TweetsController < ApplicationController
   enable :sessions
