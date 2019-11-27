@@ -21,7 +21,7 @@ class TweetsController < ApplicationController
 
   get '/tweets/new' do
     if Helpers.logged_in?(session)
-        @user = Helpers.current_user(session)
+        Helpers.current_user(session)
         @tweets = Tweet.all
         @users = User.all
         erb :'/tweets/new'
