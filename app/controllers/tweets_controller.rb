@@ -52,7 +52,7 @@ class TweetsController < ApplicationController
     end
   end
 
-  get '/tweets/:id/edit' do
+  get '/tweets/:id/edit' do 
     @user = Helpers.current_user(session)
     @tweet = Tweet.find(params[:id])
     erb :'/tweets/edit'
