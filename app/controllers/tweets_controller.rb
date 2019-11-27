@@ -31,14 +31,18 @@ class TweetsController < ApplicationController
   end
 
   post '/tweets' do
-    @user = Helpers.current_user(session)
-    if params["content"] == ""
-      redirect to "/tweets/new"
+    if !Helpers.logged_in?(session)
+      redirect to "/login"
     else
-      @tweet = Tweet.new(content: params["content"], user_id: current_user)
-      @tweet.save
-      @tweet.user = @user
-      redirect to "/tweets"
+      @user = Helpers.current_user(session)
+      if params["content"] == ""
+        redirect to "/tweets/new"
+      else
+        @tweet = Tweet.new(content: params["content"], user_id: current_user)
+        @tweet.save
+        @tweet.user = @user
+        redirect to "/tweets"
+      end
     end
   end
 
