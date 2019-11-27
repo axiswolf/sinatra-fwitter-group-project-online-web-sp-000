@@ -20,7 +20,7 @@ class TweetsController < ApplicationController
   end
 
   get '/tweets/new' do
-    if @user = Helpers.logged_in?(session)
+    if Helpers.logged_in?(session)
         @user = Helpers.current_user(session)
         @tweets = Tweet.all
         @users = User.all
