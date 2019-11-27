@@ -27,10 +27,10 @@ class ApplicationController < Sinatra::Base
 
   post '/signup' do
     # create user
-    @user = User.new(username: params["username"], password: params["password"], email: params["email"])
     if @user.username == "" || @user.password == "" || @user.email == ""
       redirect '/signup'  # redirects to signup page
     else
+      @user = User.create(username: params["username"], password: params["password"], email: params["email"])
       @user.save
       session[:user_id] = @user.id
       redirect "/tweets"
