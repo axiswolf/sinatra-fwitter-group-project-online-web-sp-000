@@ -44,11 +44,8 @@ class ApplicationController < Sinatra::Base
       Helpers.current_user(session)
       redirect '/tweets'
     else
-    #   redirect to '/signup'
       erb :'/users/login'
     end
-    # end
-    #erb :'/users/login'
   end
 
   post '/login' do
