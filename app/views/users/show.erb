@@ -1,6 +1,4 @@
-<% @tweets.each do |tweet| %>
-<%= tweet.content %>
-<% end %>
+<%= @tweet.content %>
 
 <% if @user.id == @tweet.user_id %>
   <h2>Delete</h2>
