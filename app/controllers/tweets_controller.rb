@@ -38,7 +38,7 @@ class TweetsController < ApplicationController
       if params["content"] == ""
         redirect to "/tweets/new"
       else
-        @tweet = Tweet.new(content: params["content"], user_id: current_user)
+        @tweet = Tweet.create(content: params["content"], user_id: current_user)
         @tweet.save
         @tweet.user = @user
         redirect to "/tweets"
