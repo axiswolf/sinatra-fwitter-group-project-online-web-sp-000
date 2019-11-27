@@ -73,7 +73,8 @@ class TweetsController < ApplicationController
               redirect to "/tweets/#{@tweet.id}/edit"
           else
               flash[:message] = "Your tweet cannot be empty."
-              redirect to "/tweets/#{@tweet.id}/edit"
+              #redirect to "/tweets/#{@tweet.id}/edit"
+              redirect to "/tweets/new"
           end
         else
           flash[:message] = "You can only edit and delete your own tweets"
