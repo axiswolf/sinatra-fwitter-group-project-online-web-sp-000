@@ -5,12 +5,12 @@
 
     <label>Edit Tweet</label><br>
     <textarea value="<%= @tweet.content %>" name="content" rows="4" cols="35"></textarea><br>
-    <button id="submit" type="submit">Edit Tweet</button>
+    <button id="submit" type="submit">Edit</button>
 </form>
 
 <h2>Delete</h2>
 
 <form action="/tweets/<%= @tweet.id %>" method="POST">
     <input type="hidden" id="hidden" name="_method" value="delete">
-    <button id="submit" type="submit">Delete Tweet</button>
+    <input type="submit" id = "Delete Tweet" value="Delete Tweet">
 </form>
