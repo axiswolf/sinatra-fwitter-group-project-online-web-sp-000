@@ -49,6 +49,7 @@ class TweetsController < ApplicationController
   get '/tweets/:id' do
     @user = Helpers.current_user(session)
     @tweet = Tweet.find(params[:id])
+    @tweet.user_id = @user.id
     erb :'/tweets/show'
   end
 
