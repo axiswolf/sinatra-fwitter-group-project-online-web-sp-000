@@ -32,10 +32,14 @@ class TweetsController < ApplicationController
 
   post '/tweets' do
     @user = Helpers.current_user(session)
-    @tweet = Tweet.new(content: params["content"], user_id: current_user)
-    @tweet.save
-    @tweet.user = @user
-    redirect to "/tweets"
+    if params["content"] == ""
+      redirect to "/tweets/new"
+    else
+      @tweet = Tweet.new(content: params["content"], user_id: current_user)
+      @tweet.save
+      @tweet.user = @user
+      redirect to "/tweets"
+    end
   end
 
   get '/tweets/:id' do
