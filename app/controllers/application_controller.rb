@@ -76,7 +76,5 @@ class ApplicationController < Sinatra::Base
     else
       redirect '/'
     end
-      # session.clear
-      # redirect '/login'
   end
 end
