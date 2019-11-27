@@ -59,11 +59,11 @@ class TweetsController < ApplicationController
       @tweet = Tweet.find(params[:id])
       @user = Helpers.current_user(session)
       if @tweet.user_id == @user.id
-        if @tweet && @tweet.destroy
-          redirect "/tweets"
-        else
-          redirect "/tweets/#{tweet.id}"
-        end
+        # if @tweet && @tweet.destroy
+        #   redirect "/tweets"
+        # else
+        #   redirect "/tweets/#{tweet.id}"
+        # end
       end
     end
   end
