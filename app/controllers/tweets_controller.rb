@@ -47,10 +47,14 @@ class TweetsController < ApplicationController
   end
 
   get '/tweets/:id' do
-    @user = Helpers.current_user(session)
-    @tweet = Tweet.find(params[:id])
-    @tweet.user_id = @user.id
-    erb :'/tweets/show'
+    if Helpers.logged_in?(session)
+      @user = Helpers.current_user(session)
+      @tweet = Tweet.find(params[:id])
+      @tweet.user_id = @user.id
+      erb :'/tweets/show'
+    else
+      redirect to "/login"
+    end
   end
 
   delete '/tweets/:id' do
