@@ -27,11 +27,7 @@ class ApplicationController < Sinatra::Base
 
   post '/signup' do
     # create user
-    # don't let user sign up without username, email, password
-    # @user = User.create(:username => params[:username], :password => params[:password])
-    #params = (:username => params["username"], :password => params["password"], :email => params["email"])
     @user = User.new(username: params["username"], password: params["password"], email: params["email"])
-    #@user = User.new(params)
     if @user.username == "" || @user.password == "" || @user.email == ""
       redirect '/signup'  # redirects to signup page
     else
