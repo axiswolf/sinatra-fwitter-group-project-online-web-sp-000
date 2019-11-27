@@ -1,6 +1,7 @@
 <%= @tweet.content %>
 
 <% if @user.id == @tweet.user %>
+<%= @error %>
   <h2>Delete</h2>
   <form action="/tweets/<%= @tweet.id %>" method="POST">
       <input type="hidden" id="hidden" name="_method" value="delete">
