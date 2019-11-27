@@ -42,7 +42,7 @@ class ApplicationController < Sinatra::Base
     # do not let users view login page if already logged in
     if Helpers.logged_in?(session)
       Helpers.current_user(session)
-      redirect to '/tweets'
+      redirect '/tweets'
     else
     #   redirect to '/signup'
       erb :'/users/login'
