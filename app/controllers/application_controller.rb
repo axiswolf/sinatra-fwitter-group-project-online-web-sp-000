@@ -71,18 +71,12 @@ class ApplicationController < Sinatra::Base
     # redirects a user to the index page if the user tries to access /logout while not logged in
     # redirects a user to the login route if a user tries to access /tweets route if user is not logged in
     if Helpers.logged_in?(session)
-      Helpers.current_user(session)
-      erb :'/users/logout'
+      session.clear
+      redirect to "/login"
     else
       redirect '/'
     end
       # session.clear
       # redirect '/login'
   end
-
-  post '/logout' do
-    session.clear
-    redirect '/login'
-  end
-
 end
