@@ -1,8 +1,18 @@
 <br>Welcome, <%= @user.username %>
-<% @tweets.each do |tweet| %>
-<br><%= tweet.content %>
-<%end%>
+<% if Helpers.logged_in?(session) %>
+<%= @error %>
+  <form action='/tweets' method="post">
+    Content:
+    <input type="text" name="content"><br>
+    Create Your Tweet:
+    <input type="submit" name="submit" id="submit">
+  </form>
+  <% @tweets.each do |tweet| %>
+  <br><%= tweet.content %>
+  <%end%>
 
-<br>
-<br>
-<a href="/logout">Log Out</a>
+  <br>
+  <a href="/logout">Log Out</a>
+  <% else %>
+      <h1> You Must Be Logged in to Make Tweets </h1>
+  <% end %>
